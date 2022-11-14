@@ -1,0 +1,68 @@
+public class List<Item> {
+    private int kol;
+    private ListItem<Item> first;
+    private ListItem<Item> last;
+    List(){
+        kol =0;
+        first = null;
+        last = null;
+    }
+    List(Item data){
+        first = last = new ListItem<Item>(data);
+        kol=1;
+    }
+    public void add(Item data){
+        ListItem<Item> li = new ListItem<Item>(data);
+        li.setNext(null);
+        if(kol>0){
+            li.setPrev(last);
+            last.setNext(li);
+        }
+    }
+    public void addInPos(int n, Item d){
+        ListItem<Item> frst = first;
+        if ( n ==0){
+            ListItem<Item> li = new ListItem<>(d);
+            frst.setPrev(li);
+            li.setNext(frst);
+        }
+    }
+    public ListItem<Item> get(int n){
+        if(n>kol){
+            return null;
+        }
+        else{
+            ListItem<Item> li = first;
+            for(int i=0;i<n;i++){
+                li=li.getNext();
+            }
+            return li;
+        }
+    }
+
+    void print(){
+        ListItem<Item> li = first;
+        while(li!=null){
+            System.out.print(li.GetData() + " ");
+            li=li.getNext();
+        }
+    }
+    public void remove(int i){
+        if ( i<=kol){
+            ListItem<Item> li = get(i);
+            ListItem<Item> prev = li.getPrev();
+            ListItem<Item> next = li.getNext();
+            if(prev != null){
+                prev.setNext(next);
+            }
+            if(next!=null){
+                next.setPrev(prev);
+                if(i==1){
+                    first = next;
+                }
+            }
+            kol--;
+        }
+    }
+
+}
