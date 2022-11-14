@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args){
+        Scanner sc =new Scanner(System.in);
+        List p = new List();
+        System.out.println(" Введите количество элементов списка");
+        int k = sc.nextInt();
+        for(int i=0;i<k;i++){
+            System.out.println(" Введите элемент " + " " + (i+1));
+            int d =sc.nextInt();
+            p.add(d);
+        }
+        while(true){
+            System.out.println("1 - добавить в начало 2 - добавить в конец 3 - удалить в начале");
+            System.out.println( " 4-удалить в конце 5 - добавить в указанную позицию 6 - сортировка по возр");
+            System.out.println("7 - сортировка по убыванию 8 - количество элементов списка 9 - вывод промежутка");
+            int c = sc.nextInt();
+            if( c ==1){
+                System.out.println(" Введите элемент ");
+                int d =sc.nextInt();
+                p.addInPos(0,d);
+                p.print();
+            }
+
+        }
+    }
+}
