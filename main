@@ -19,7 +19,7 @@ public class Main {
             System.out.println(" ");
             System.out.println("1 - добавить в начало 2 - добавить в конец 3 - удалить в начале");
             System.out.println( " 4-удалить в конце 5 - добавить в указанную позицию 6 - сортировка по возр");
-            System.out.println("7 - сортировка по убыванию 8 - количество элементов списка 9 - вывод промежутка");
+            System.out.println("7 - сортировка по убыванию 8 - количество элементов списка 9 - вывод промежутка 10 - удалить в указанной позиции");
             int c = sc.nextInt();
             if( c == 1){
                 System.out.println(" Введите элемент ");
@@ -72,6 +72,12 @@ public class Main {
                 a =sc.nextInt();
                 b =sc.nextInt();
                 p.printBetw(a,b);
+            }
+            if( c == 10){
+                System.out.println("Укажите позицию");
+                int b = sc.nextInt();
+                p.DelInPos(b);
+                p.print();
             }
         }
     }
