@@ -1,22 +1,18 @@
 public class ListItem<Item> {
-    private Item data;
+    private int data;
     private ListItem<Item> next;
     private ListItem<Item> prev;
 
-    ListItem(Item d){
+    ListItem(int d){
         data = d;
         next = null;
         prev = null;
     }
-    ListItem(Item d, ListItem<Item> p){
-        data =d;
-        prev =p;
-    }
-    public Item GetData(){
+    public int GetData(){
         return data;
     }
 
-    public void setData(Item d) {
+    public void setData(int d) {
         data = d;
     }
 
