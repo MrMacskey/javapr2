@@ -17,7 +17,6 @@ public class List<Item> {
         kol++;
     }
     public void addInPos(int n, int d){
-        kol++;
         ListItem<Item> li = new ListItem<>(d);
         if ( n == 1){
             first.setPrev(li);
@@ -42,17 +41,29 @@ public class List<Item> {
                 baka= baka.getNext();
             }
         }
+        kol++;
     }
     public void DelInPos(int n){
         if ( n == 1){
             first = first.getNext();
-            first.setNext(null);
+            first.setPrev(null);
         }
         if( n == kol + 1){
             last =last.getPrev();
             last.setNext(null);
         }
-
+        else if ( n> 1 && n < kol+1){
+            ListItem<Item> baka = first;
+            for(int i=0;i<n;i++){
+                if(i == (n-1)){
+                    baka.getNext().setPrev(baka.getPrev());
+                    baka.getPrev().setNext(baka.getNext());
+                    break;
+                }
+                baka= baka.getNext();
+            }
+        }
+        kol--;
     }
     public void SortUp(){
         ListItem<Item> li = first;
